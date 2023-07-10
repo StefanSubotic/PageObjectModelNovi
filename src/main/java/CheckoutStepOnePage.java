@@ -23,6 +23,10 @@ public class CheckoutStepOnePage extends BasePage{
     @FindBy(className = "complete-header")
     WebElement getText;
 
+    @FindBy(css = ".error h3")
+    WebElement errorMessage;
+
+
     public CheckoutStepOnePage(ChromeDriver driver)
     {
         this.driver = driver;
@@ -40,8 +44,10 @@ public class CheckoutStepOnePage extends BasePage{
     {
         finish.click();
     }
-    public String getMessage()
+    public String getMessage() {return getText.getText();}
+
+    public String getError()
     {
-        return getText.getText();
+        return errorMessage.getText();
     }
 }
